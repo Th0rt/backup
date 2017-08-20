@@ -1,0 +1,1 @@
+INSERT INTO booklist.books (book_title) VALUES ("BOOK_A"),("BOOK_B"),("BOOK_C");
