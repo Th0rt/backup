@@ -7,6 +7,10 @@ module SessionsHelper
   
   def logged_in?
     !!current_user
+    # '!'は否定を表す論理演算子。
+    # Rubyではnillとfalse以外は全てtrueとして扱われる。
+    # '!!'は二重否定なので論理上は何の変化もないが、
+    # 出力をtrue/falseに変換することが出来る。
   end
   
 end
