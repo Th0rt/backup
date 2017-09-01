@@ -3,7 +3,7 @@
     <% user = micropost.user %>
     <li class="media">
       <div class="media-left">
-        <img class="meda-object img-rounded" src="<%= gravatar_url(user, options = { size: 50 }) %>" alt="">
+        <img class="meda-object img-rounded" src="<%= gravatar_url(user, options = { size: 80 }) %>" alt="">
       </div>
       <div class="media-body">
         <div>
@@ -13,10 +13,15 @@
         <div>
           <p><%= micropost.content %></p>
         </div>
-        <div>
-          <% if current_user == micropost.user %>
-            <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
-          <% end %>
+        <div class="row">
+          <div class="col-xs-2">
+            <%= render 'rel_favorite_microposts/fav_button', micropost: micropost %>          
+          </div>
+          <div class="col-xs-1">
+            <% if current_user == micropost.user %>
+              <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </li>
